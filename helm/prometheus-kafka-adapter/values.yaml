@@ -39,7 +39,7 @@ KAFKA_SSL_CA_CERT:
 
 environment:
   # defines kafka endpoint and port, defaults to kafka:9092.
-  KAFKA_BROKER_LIST: "<remote kafka server ip>:9092"
+  KAFKA_BROKER_LIST: "kafka-broker:9092"
   # defines kafka topic to be used, defaults to metrics.
   KAFKA_TOPIC: "microservices-demo"
   # defines the compression type to be used, defaults to none.
