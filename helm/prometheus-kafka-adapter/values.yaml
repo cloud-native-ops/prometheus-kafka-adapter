@@ -4,10 +4,16 @@
 
 replicaCount: 1
 
+#image:
+#  repository: telefonica/prometheus-kafka-adapter
+#  tag: 1.7.0
+#  pullPolicy: IfNotPresent
+
 image:
-  repository: telefonica/prometheus-kafka-adapter
-  tag: 1.7.0
+  repository: dlabajo/prometheus-kafka-adapter
+  tag: 1.8.0
   pullPolicy: IfNotPresent
+
 
 imagePullSecrets: []
 nameOverride: ""
@@ -33,9 +39,9 @@ KAFKA_SSL_CA_CERT:
 
 environment:
   # defines kafka endpoint and port, defaults to kafka:9092.
-  KAFKA_BROKER_LIST: ""
+  KAFKA_BROKER_LIST: "<remote kafka server ip>:9092"
   # defines kafka topic to be used, defaults to metrics.
-  KAFKA_TOPIC: ""
+  KAFKA_TOPIC: "microservices-demo"
   # defines the compression type to be used, defaults to none.
   KAFKA_COMPRESSION:
   # defines the number of messages to batch write, defaults to 10000.
@@ -89,8 +95,8 @@ service:
   #   type: NodePort
   #   nodeport: <value>
   type: ClusterIP
-  port: 80
-  annotations: {}
+  port: 8080
+  #annotations: {}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
