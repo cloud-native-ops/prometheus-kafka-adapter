@@ -1,0 +1,4 @@
+prometheus:
+  prometheusSpec:
+    remoteWrite:
+    - url: "http://prometheus-kafka-adapter:8080/receive"
